@@ -74,13 +74,12 @@ calcBmis' xs = [bmi | (w, h) <- xs, let bmi = w / h ** 2, bmi > 25.0]
 
 describeList :: [a] -> String
 describeList ls = "The list is "
-  case ls of
-    []  -> "empty."
-    [_] -> "a singleton list."
-     _  -> "a longer list."
+  ++ case ls of []  -> "empty."
+                [x] -> "a singleton list."
+                xs  -> "a longer list."
 
 describeList' :: [a] -> String
 describeList' ls = "The list is " ++ what ls
   where what []  = "empty."
-        what [_] = "a singleton list."
-        what _   =  "a longer list."
+        what [x] = "a singleton list."
+        what xs  =  "a longer list."
