@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title></title>
+</head>
+
+<body class="p-2">
+  <script type="module">
+    import { h, render } from "https://unpkg.com/preact?module";
+
+    const li = i => h(
+      'li',
+      { class: 'mt-2 p-2 border border-red-500 first:mt-0' },
+      [
+        h('p', { class: 'border-b' }, `todo ${i}`),
+        h('p', { class: 'border-sm' }, '2020 05/12'),
+      ]
+    )
+
+    const app = h('div', null, [
+      h('ul', { class: 'py-2 px-4 border border-red-500' }, [1, 2, 3].map(i => li(i)))
+    ]);
+
+    render(app, document.body)
+  </script>
+</body>
+</html>
